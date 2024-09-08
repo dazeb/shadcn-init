@@ -1,14 +1,26 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-'use client'
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Bell, Home, BookOpen, HelpCircle, Trophy, Users, Leaf, Dna, Beaker, Lightbulb, Tent } from "lucide-react"
-import Image from 'next/image';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Bell,
+  Home,
+  BookOpen,
+  HelpCircle,
+  Trophy,
+  Users,
+  Leaf,
+  Dna,
+  Beaker,
+  Lightbulb,
+  Tent,
+} from "lucide-react";
+import Image from "next/image";
 
 export function GrowJournal() {
   return (
@@ -32,7 +44,11 @@ export function GrowJournal() {
             { icon: Lightbulb, label: "Lights" },
             { icon: Tent, label: "Tents" },
           ].map((item, index) => (
-            <Button key={index} variant="ghost" className="w-full justify-start">
+            <Button
+              key={index}
+              variant="ghost"
+              className="w-full justify-start"
+            >
               <item.icon className="mr-2 h-4 w-4" />
               {item.label}
             </Button>
@@ -68,7 +84,9 @@ export function GrowJournal() {
               <AvatarFallback>SM</AvatarFallback>
             </Avatar>
             <span className="font-medium">SOGMASTER</span>
-            <Badge variant="outline" className="ml-2">Approved by Barney&apos;s Farm</Badge>
+            <Badge variant="outline" className="ml-2">
+              Approved by Barney&apos;s Farm
+            </Badge>
             <div className="flex items-center space-x-2 text-muted-foreground">
               <span>9</span>
               <span>56</span>
@@ -83,8 +101,19 @@ export function GrowJournal() {
               <CardTitle>Grow Details</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-wrap gap-4">
-              {["Gorilla Zkittlez", "Canna", "Plant Magic", "P2000", "70x70x160cm", "Indoor", "ScrOG", "SoG"].map((item, index) => (
-                <Badge key={index} variant="secondary">{item}</Badge>
+              {[
+                "Gorilla Zkittlez",
+                "Canna",
+                "Plant Magic",
+                "P2000",
+                "70x70x160cm",
+                "Indoor",
+                "ScrOG",
+                "SoG",
+              ].map((item, index) => (
+                <Badge key={index} variant="secondary">
+                  {item}
+                </Badge>
               ))}
             </CardContent>
           </Card>
@@ -97,28 +126,36 @@ export function GrowJournal() {
             <TabsContent value="weeks">
               <div className="flex space-x-2 overflow-x-auto py-4">
                 {[3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((week) => (
-                  <Button key={week} variant={week === 3 ? "default" : "outline"} className="rounded-full">
+                  <Button
+                    key={week}
+                    variant={week === 3 ? "default" : "outline"}
+                    className="rounded-full"
+                  >
                     {week}
                   </Button>
                 ))}
               </div>
-            <Card>
-              <CardContent className="p-0">
-                <Image
-                  src="https://placehold.jp/800x400.png?text=Grow+progress"
-                  alt="Grow progress"
-                  width={800}
-                  height={400}
-                  className="w-full h-64 object-cover"
-                />
-              </CardContent>
-            </Card>
+              <Card>
+                <CardContent className="p-0">
+                  <Image
+                    src="https://placehold.jp/800x400.png?text=Grow+progress"
+                    alt="Grow progress"
+                    width={800}
+                    height={400}
+                    className="w-full h-64 object-cover"
+                  />
+                </CardContent>
+              </Card>
             </TabsContent>
             <TabsContent value="strain">
               <Card>
                 <CardContent>
-                  <h3 className="text-lg font-semibold mb-2">Gorilla Zkittlez</h3>
-                  <p className="text-muted-foreground">Strain information would go here...</p>
+                  <h3 className="text-lg font-semibold mb-2">
+                    Gorilla Zkittlez
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Strain information would go here...
+                  </p>
                 </CardContent>
               </Card>
             </TabsContent>
@@ -126,5 +163,5 @@ export function GrowJournal() {
         </div>
       </main>
     </div>
-  )
+  );
 }

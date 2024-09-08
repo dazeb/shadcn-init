@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { PolarAngleAxis, RadialBar, RadialBarChart } from "recharts"
+import { PolarAngleAxis, RadialBar, RadialBarChart } from "recharts";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { ChartContainer } from "@/components/ui/chart"
+import { Card, CardContent } from "@/components/ui/card";
+import { ChartContainer } from "@/components/ui/chart";
 
 export default function Component() {
   return (
@@ -95,5 +95,5 @@ export default function Component() {
         </ChartContainer>
       </CardContent>
     </Card>
-  )
+  );
 }
