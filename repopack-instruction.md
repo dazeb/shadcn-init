@@ -1,3 +1,3 @@
-- ALWAYS USE PNPM FOR PACKAGE MANAGER. 
+- ALWAYS USE PNPM FOR PACKAGE MANAGER.
 - ALWAYS CHECK PROJECT FOR `repopack-output.txt` IN PROJECT ROOT FOR DETAILED VIEW OF FILESTRUCTURE. RUN `repopack` IN THE TERMINAL to update the `repopack-output.txt`.
 - Use this format for all placeholder images. Specify width and height `https://placehold.jp/{width}x{height}.png`, You can put a string to the image. Use a "text" parameter.`https://placehold.jp/250x50.png?text={text}`, Background color, font color, font size `https://placehold.jp/{font color}/150x100.png`, `https://placehold.jp/{background color}/{font color}/150x100.png`, `https://placehold.jp/{font size}/{background color}/{font color}/150x100.png`. CSS is available. `https://placehold.jp/250x50.png?&css={JSON formated CSS}`.

@@ -1,18 +1,26 @@
-'use client'
+"use client";
 
-import React from 'react'
-import Image from 'next/image'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Thermometer, Droplets, Wind, Leaf, Sun, Ruler, Settings } from 'lucide-react'
+import React from "react";
+import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Thermometer,
+  Droplets,
+  Wind,
+  Leaf,
+  Sun,
+  Ruler,
+  Settings,
+} from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 
 export default function GrowJournal() {
   return (
@@ -36,7 +44,11 @@ export default function GrowJournal() {
       <Tabs defaultValue="week1" className="mb-6">
         <TabsList className="grid w-full grid-cols-12 gap-2">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((week) => (
-            <TabsTrigger key={week} value={`week${week}`} className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+            <TabsTrigger
+              key={week}
+              value={`week${week}`}
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            >
               Week {week}
             </TabsTrigger>
           ))}
@@ -65,7 +77,7 @@ export default function GrowJournal() {
             </ScrollArea>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardHeader>
             <CardTitle>Grow Conditions</CardTitle>
@@ -127,5 +139,5 @@ export default function GrowJournal() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

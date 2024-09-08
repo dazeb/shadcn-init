@@ -13,27 +13,29 @@ or other automated processes.
 
 <file_format>
 The content is organized as follows:
+
 1. This summary section
 2. Repository structure
 3. Repository files, each consisting of:
-  - File path as an attribute
-  - Full contents of the file
-</file_format>
+
+- File path as an attribute
+- Full contents of the file
+  </file_format>
 
 <usage_guidelines>
+
 1. This file should be treated as read-only. Any changes should be made to the
-  original repository files, not this packed version.
+   original repository files, not this packed version.
 2. When processing this file, use the file path attributes to distinguish
-  between different files in the repository.
+   between different files in the repository.
 3. Be aware that this file may contain sensitive information. Handle it with
-  the same level of security as you would the original repository.
-</usage_guidelines>
+   the same level of security as you would the original repository.
+   </usage_guidelines>
 
 <notes>
 - Some files may have been excluded based on .gitignore rules and Repopack's
   configuration.
 - Binary files are not included in this packed representation.
-
 
 </notes>
 
@@ -45,39 +47,39 @@ For more information about Repopack, visit: https://github.com/yamadashy/repopac
 
 <repository_structure>
 app/
-  dashboard/
-    page.tsx
-  home/
-    page.tsx
-  journal/
-    page.tsx
-  journals/
-    page.tsx
-  sign-in/
-    [[...sign-in]]/
-      page.tsx
-  sign-up/
-    [[...sign-up]]/
-      page.tsx
-  globals.css
-  layout.tsx
-  page.tsx
+dashboard/
+page.tsx
+home/
+page.tsx
+journal/
+page.tsx
+journals/
+page.tsx
+sign-in/
+[[...sign-in]]/
+page.tsx
+sign-up/
+[[...sign-up]]/
+page.tsx
+globals.css
+layout.tsx
+page.tsx
 components/
-  ui/
-    avatar.tsx
-    badge.tsx
-    button.tsx
-    card.tsx
-    dropdown-menu.tsx
-    input.tsx
-    scroll-area.tsx
-    tabs.tsx
-  CollapsibleSidebar.tsx
-  grow-journal.tsx
-  Header.tsx
-  Sidebar.tsx
+ui/
+avatar.tsx
+badge.tsx
+button.tsx
+card.tsx
+dropdown-menu.tsx
+input.tsx
+scroll-area.tsx
+tabs.tsx
+CollapsibleSidebar.tsx
+grow-journal.tsx
+Header.tsx
+Sidebar.tsx
 lib/
-  utils.ts
+utils.ts
 .eslintrc.json
 .gitignore
 components.json
@@ -106,61 +108,61 @@ const growthStages = ['All', 'Indoor', 'Outdoor', 'Vegetation', 'Flowering', 'Ha
 const shorts = ["24 Overdosin'", "Gelato Auto", "Auto Flower Blue Perched Soda", "Auto Northern Lights", "Orange Sherbet Auto LED", "RQS Hulkberry Auto"]
 
 export default function Dashboard() {
-  const { user } = useUser();
+const { user } = useUser();
 
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-end mb-4">
-        <Button variant="ghost" size="icon" className="mr-2">
-          <Plus className="h-5 w-5" />
-          <span className="sr-only">Add new</span>
-        </Button>
-        <Button variant="ghost" size="icon">
-          <Bell className="h-5 w-5" />
-          <span className="sr-only">Notifications</span>
-        </Button>
-      </div>
-      <h1 className="text-2xl font-bold mb-4">Welcome, {user?.firstName || 'Grower'}!</h1>
-      <Tabs defaultValue="all" className="mb-8">
-        <TabsList>
-          {growthStages.map((stage) => (
-            <TabsTrigger key={stage} value={stage.toLowerCase()}>{stage}</TabsTrigger>
-          ))}
-        </TabsList>
-      </Tabs>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
-        {[...Array(8)].map((_, i) => (
-          <Card key={i}>
-            <CardContent className="p-0 relative">
-              <Image src={`https://placehold.jp/300x200.png`} alt={`Plant ${i + 1}`} width={300} height={200} className="w-full h-48 object-cover" />
-              <span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">12 weeks</span>
-            </CardContent>
-            <CardFooter className="flex flex-col items-start p-4">
-              <h3 className="font-semibold mb-1">Plant Name {i + 1}</h3>
-              <p className="text-sm text-muted-foreground">Grower details...</p>
-              <div className="flex items-center mt-2 text-xs text-muted-foreground">
-                <span className="mr-2">2 days ago</span>
-                <span>23 comments</span>
-              </div>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-      <h2 className="text-2xl font-bold mb-4">Shorts</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        {shorts.map((short, i) => (
-          <Card key={i}>
-            <CardContent className="p-0">
-              <Image src={`https://placehold.jp/150x150.png`} alt={short} width={150} height={150} className="w-full h-36 object-cover" />
-            </CardContent>
-            <CardFooter className="p-2">
-              <p className="text-xs">{short}</p>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-    </div>
-  )
+return (
+<div className="container mx-auto px-4 py-8">
+<div className="flex justify-end mb-4">
+<Button variant="ghost" size="icon" className="mr-2">
+<Plus className="h-5 w-5" />
+<span className="sr-only">Add new</span>
+</Button>
+<Button variant="ghost" size="icon">
+<Bell className="h-5 w-5" />
+<span className="sr-only">Notifications</span>
+</Button>
+</div>
+<h1 className="text-2xl font-bold mb-4">Welcome, {user?.firstName || 'Grower'}!</h1>
+<Tabs defaultValue="all" className="mb-8">
+<TabsList>
+{growthStages.map((stage) => (
+<TabsTrigger key={stage} value={stage.toLowerCase()}>{stage}</TabsTrigger>
+))}
+</TabsList>
+</Tabs>
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+{[...Array(8)].map((\_, i) => (
+<Card key={i}>
+<CardContent className="p-0 relative">
+<Image src={`https://placehold.jp/300x200.png`} alt={`Plant ${i + 1}`} width={300} height={200} className="w-full h-48 object-cover" />
+<span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">12 weeks</span>
+</CardContent>
+<CardFooter className="flex flex-col items-start p-4">
+<h3 className="font-semibold mb-1">Plant Name {i + 1}</h3>
+<p className="text-sm text-muted-foreground">Grower details...</p>
+<div className="flex items-center mt-2 text-xs text-muted-foreground">
+<span className="mr-2">2 days ago</span>
+<span>23 comments</span>
+</div>
+</CardFooter>
+</Card>
+))}
+</div>
+<h2 className="text-2xl font-bold mb-4">Shorts</h2>
+<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+{shorts.map((short, i) => (
+<Card key={i}>
+<CardContent className="p-0">
+<Image src={`https://placehold.jp/150x150.png`} alt={short} width={150} height={150} className="w-full h-36 object-cover" />
+</CardContent>
+<CardFooter className="p-2">
+<p className="text-xs">{short}</p>
+</CardFooter>
+</Card>
+))}
+</div>
+</div>
+)
 }
 </file>
 
@@ -176,9 +178,9 @@ const growthStages = ['All', 'Indoor', 'Outdoor', 'Vegetation', 'Flowering', 'Ha
 const shorts = ["Barney's Blue Sunset Sherbet", "First F1 Pineapple Express", "Sour Puffs", "Megh Sea Of Weed", "FastBuds Gorilla Zkittlez", "Powered by kinmen"]
 
 export default function Home() {
-  return (
-    <div className="min-h-screen bg-background">
-      <Header />
+return (
+<div className="min-h-screen bg-background">
+<Header />
 
       <main className="container mx-auto px-4 py-8">
         <Tabs defaultValue="all" className="mb-8">
@@ -229,7 +231,8 @@ export default function Home() {
         </div>
       </main>
     </div>
-  )
+
+)
 }
 </file>
 
@@ -244,30 +247,30 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Thermometer, Droplets, Wind, Leaf, Sun, Ruler, Settings } from 'lucide-react'
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
+DropdownMenu,
+DropdownMenuContent,
+DropdownMenuItem,
+DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
 export default function GrowJournal() {
-  return (
-    <div className="container mx-auto p-4">
-      <header className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Gorilla Zkittles 3x3</h1>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline">
-              <Settings className="mr-2 h-4 w-4" />
-              Settings
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuItem>Add Week</DropdownMenuItem>
-            <DropdownMenuItem>Edit Week</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </header>
+return (
+<div className="container mx-auto p-4">
+<header className="flex justify-between items-center mb-6">
+<h1 className="text-2xl font-bold">Gorilla Zkittles 3x3</h1>
+<DropdownMenu>
+<DropdownMenuTrigger asChild>
+<Button variant="outline">
+<Settings className="mr-2 h-4 w-4" />
+Settings
+</Button>
+</DropdownMenuTrigger>
+<DropdownMenuContent align="end">
+<DropdownMenuItem>Add Week</DropdownMenuItem>
+<DropdownMenuItem>Edit Week</DropdownMenuItem>
+</DropdownMenuContent>
+</DropdownMenu>
+</header>
 
       <Tabs defaultValue="week4" className="mb-6">
         <TabsList className="grid w-full grid-cols-12 gap-2">
@@ -363,7 +366,8 @@ export default function GrowJournal() {
         </CardContent>
       </Card>
     </div>
-  )
+
+)
 }
 </file>
 
@@ -380,34 +384,34 @@ import { Bell, Home, BookOpen, HelpCircle, Trophy, Users, Leaf, Dna, Beaker, Lig
 import Image from 'next/image';
 
 export function GrowJournal() {
-  return (
-    <div className="flex h-screen bg-background">
-      {/* Sidebar */}
-      <aside className="w-64 border-r p-4 hidden md:block">
-        <div className="flex items-center mb-6">
-          <Leaf className="h-6 w-6 text-green-600 mr-2" />
-          <span className="text-xl font-bold">GrowJournals</span>
-        </div>
-        <nav className="space-y-2">
-          {[
-            { icon: Home, label: "Home" },
-            { icon: BookOpen, label: "Diaries" },
-            { icon: HelpCircle, label: "Questions" },
-            { icon: Trophy, label: "Contests" },
-            { icon: Users, label: "Growers" },
-            { icon: Leaf, label: "Strains" },
-            { icon: Dna, label: "Breeders" },
-            { icon: Beaker, label: "Nutrients" },
-            { icon: Lightbulb, label: "Lights" },
-            { icon: Tent, label: "Tents" },
-          ].map((item, index) => (
-            <Button key={index} variant="ghost" className="w-full justify-start">
-              <item.icon className="mr-2 h-4 w-4" />
-              {item.label}
-            </Button>
-          ))}
-        </nav>
-      </aside>
+return (
+<div className="flex h-screen bg-background">
+{/_ Sidebar _/}
+<aside className="w-64 border-r p-4 hidden md:block">
+<div className="flex items-center mb-6">
+<Leaf className="h-6 w-6 text-green-600 mr-2" />
+<span className="text-xl font-bold">GrowJournals</span>
+</div>
+<nav className="space-y-2">
+{[
+{ icon: Home, label: "Home" },
+{ icon: BookOpen, label: "Diaries" },
+{ icon: HelpCircle, label: "Questions" },
+{ icon: Trophy, label: "Contests" },
+{ icon: Users, label: "Growers" },
+{ icon: Leaf, label: "Strains" },
+{ icon: Dna, label: "Breeders" },
+{ icon: Beaker, label: "Nutrients" },
+{ icon: Lightbulb, label: "Lights" },
+{ icon: Tent, label: "Tents" },
+].map((item, index) => (
+<Button key={index} variant="ghost" className="w-full justify-start">
+<item.icon className="mr-2 h-4 w-4" />
+{item.label}
+</Button>
+))}
+</nav>
+</aside>
 
       {/* Main content */}
       <main className="flex-1 overflow-y-auto">
@@ -495,7 +499,8 @@ export function GrowJournal() {
         </div>
       </main>
     </div>
-  )
+
+)
 }
 </file>
 
@@ -503,7 +508,7 @@ export function GrowJournal() {
 import { SignIn } from "@clerk/nextjs";
 
 export default function Page() {
-  return <SignIn />;
+return <SignIn />;
 }
 </file>
 
@@ -511,7 +516,7 @@ export default function Page() {
 import { SignUp } from "@clerk/nextjs";
 
 export default function Page() {
-  return <SignUp />;
+return <SignUp />;
 }
 </file>
 
@@ -521,94 +526,95 @@ export default function Page() {
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+--background: #ffffff;
+--foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+--background: #0a0a0a;
+--foreground: #ededed;
+}
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+color: var(--foreground);
+background: var(--background);
+font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.text-balance {
+text-wrap: balance;
+}
 }
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-  }
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
+:root {
+--background: 0 0% 100%;
+--foreground: 222.2 84% 4.9%;
+--card: 0 0% 100%;
+--card-foreground: 222.2 84% 4.9%;
+--popover: 0 0% 100%;
+--popover-foreground: 222.2 84% 4.9%;
+--primary: 222.2 47.4% 11.2%;
+--primary-foreground: 210 40% 98%;
+--secondary: 210 40% 96.1%;
+--secondary-foreground: 222.2 47.4% 11.2%;
+--muted: 210 40% 96.1%;
+--muted-foreground: 215.4 16.3% 46.9%;
+--accent: 210 40% 96.1%;
+--accent-foreground: 222.2 47.4% 11.2%;
+--destructive: 0 84.2% 60.2%;
+--destructive-foreground: 210 40% 98%;
+--border: 214.3 31.8% 91.4%;
+--input: 214.3 31.8% 91.4%;
+--ring: 222.2 84% 4.9%;
+--chart-1: 12 76% 61%;
+--chart-2: 173 58% 39%;
+--chart-3: 197 37% 24%;
+--chart-4: 43 74% 66%;
+--chart-5: 27 87% 67%;
+--radius: 0.5rem;
+}
+.dark {
+--background: 222.2 84% 4.9%;
+--foreground: 210 40% 98%;
+--card: 222.2 84% 4.9%;
+--card-foreground: 210 40% 98%;
+--popover: 222.2 84% 4.9%;
+--popover-foreground: 210 40% 98%;
+--primary: 210 40% 98%;
+--primary-foreground: 222.2 47.4% 11.2%;
+--secondary: 217.2 32.6% 17.5%;
+--secondary-foreground: 210 40% 98%;
+--muted: 217.2 32.6% 17.5%;
+--muted-foreground: 215 20.2% 65.1%;
+--accent: 217.2 32.6% 17.5%;
+--accent-foreground: 210 40% 98%;
+--destructive: 0 62.8% 30.6%;
+--destructive-foreground: 210 40% 98%;
+--border: 217.2 32.6% 17.5%;
+--input: 217.2 32.6% 17.5%;
+--ring: 212.7 26.8% 83.9%;
+--chart-1: 220 70% 50%;
+--chart-2: 160 60% 45%;
+--chart-3: 30 80% 55%;
+--chart-4: 280 65% 60%;
+--chart-5: 340 75% 55%;
+}
 }
 
 @layer base {
-  * {
-    @apply border-border;
+
+- {
+  @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+  @apply bg-background text-foreground;
   }
-}
-</file>
+  }
+  </file>
 
 <file path="app/layout.tsx">
 'use client'
@@ -616,92 +622,92 @@ body {
 import localFont from "next/font/local";
 import "./globals.css";
 import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton
+ClerkProvider,
+SignInButton,
+SignUpButton,
+SignedIn,
+SignedOut,
+UserButton
 } from '@clerk/nextjs'
 import { Input } from "@/components/ui/input"
 import CollapsibleSidebar from "@/components/CollapsibleSidebar"
 import { Button } from "@/components/ui/button"
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+src: "./fonts/GeistVF.woff",
+variable: "--font-geist-sans",
+weight: "100 900",
 });
 
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+src: "./fonts/GeistMonoVF.woff",
+variable: "--font-geist-mono",
+weight: "100 900",
 });
 
 export default function RootLayout({
-  children,
+children,
 }: Readonly<{
-  children: React.ReactNode;
+children: React.ReactNode;
 }>) {
-  return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <div className="flex flex-col h-screen bg-background">
-            <header className="w-full border-b bg-background z-10">
-              <div className="max-w-screen-2xl mx-auto px-4 py-2 flex items-center justify-between">
-                <div className="flex items-center w-1/3">
-                  <svg
+return (
+<ClerkProvider>
+<html lang="en">
+<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+<div className="flex flex-col h-screen bg-background">
+<header className="w-full border-b bg-background z-10">
+<div className="max-w-screen-2xl mx-auto px-4 py-2 flex items-center justify-between">
+<div className="flex items-center w-1/3">
+<svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     className="w-8 h-8 text-blue-600"
                     aria-label="Acme Logo"
                   >
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
-                  <span className="ml-2 text-lg font-semibold">Acme</span>
-                </div>
-                <div className="flex-1 max-w-md mx-auto">
-                  <Input type="search" placeholder="Search Diaries" className="w-full" />
-                </div>
-                <div className="flex items-center space-x-4 w-1/3 justify-end">
-                  <SignedOut>
-                    <SignInButton mode="modal">
-                      <Button variant="ghost">Sign In</Button>
-                    </SignInButton>
-                    <SignUpButton mode="modal">
-                      <Button variant="default">Sign Up</Button>
-                    </SignUpButton>
-                  </SignedOut>
-                  <SignedIn>
-                    <button className="text-gray-600 hover:text-gray-900" aria-label="Add new">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                      </svg>
-                    </button>
-                    <button className="text-gray-600 hover:text-gray-900" aria-label="Notifications">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-                      </svg>
-                    </button>
-                    <UserButton afterSignOutUrl="/home" />
-                  </SignedIn>
-                </div>
-              </div>
-            </header>
-            <div className="flex flex-1 overflow-hidden">
-              <CollapsibleSidebar />
-              <main className="flex-1 overflow-auto p-4">
-                {children}
-              </main>
-            </div>
-          </div>
-        </body>
-      </html>
-    </ClerkProvider>
-  )
+<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+</svg>
+<span className="ml-2 text-lg font-semibold">Acme</span>
+</div>
+<div className="flex-1 max-w-md mx-auto">
+<Input type="search" placeholder="Search Diaries" className="w-full" />
+</div>
+<div className="flex items-center space-x-4 w-1/3 justify-end">
+<SignedOut>
+<SignInButton mode="modal">
+<Button variant="ghost">Sign In</Button>
+</SignInButton>
+<SignUpButton mode="modal">
+<Button variant="default">Sign Up</Button>
+</SignUpButton>
+</SignedOut>
+<SignedIn>
+<button className="text-gray-600 hover:text-gray-900" aria-label="Add new">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+<path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+</svg>
+</button>
+<button className="text-gray-600 hover:text-gray-900" aria-label="Notifications">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+<path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+</svg>
+</button>
+<UserButton afterSignOutUrl="/home" />
+</SignedIn>
+</div>
+</div>
+</header>
+<div className="flex flex-1 overflow-hidden">
+<CollapsibleSidebar />
+<main className="flex-1 overflow-auto p-4">
+{children}
+</main>
+</div>
+</div>
+</body>
+</html>
+</ClerkProvider>
+)
 }
 </file>
 
@@ -717,9 +723,9 @@ const growthStages = ['All', 'Indoor', 'Outdoor', 'Vegetation', 'Flowering', 'Ha
 const shorts = ["Barney's Blue Sunset Sherbet", "First F1 Pineapple Express", "Sour Puffs", "Megh Sea Of Weed", "FastBuds Gorilla Zkittlez", "Powered by kinmen"]
 
 export default function Home() {
-  return (
-    <div className="min-h-screen bg-background">
-      <Header />
+return (
+<div className="min-h-screen bg-background">
+<Header />
 
       <main className="container mx-auto px-4 py-8">
         <Tabs defaultValue="all" className="mb-8">
@@ -770,57 +776,67 @@ export default function Home() {
         </div>
       </main>
     </div>
-  )
+
+)
 }
 </file>
 
 <file path="components/ui/avatar.tsx">
 "use client"
 
-import * as React from "react"
-import * as AvatarPrimitive from "@radix-ui/react-avatar"
+import _ as React from "react"
+import _ as AvatarPrimitive from "@radix-ui/react-avatar"
 
 import { cn } from "@/lib/utils"
 
 const Avatar = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Root
+React.ElementRef<typeof AvatarPrimitive.Root>,
+React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
+
+> (({ className, ...props }, ref) => (
+> <AvatarPrimitive.Root
+
     ref={ref}
     className={cn(
       "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
       className
     )}
     {...props}
-  />
+
+/>
 ))
 Avatar.displayName = AvatarPrimitive.Root.displayName
 
 const AvatarImage = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Image>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
->(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Image
+React.ElementRef<typeof AvatarPrimitive.Image>,
+React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
+
+> (({ className, ...props }, ref) => (
+> <AvatarPrimitive.Image
+
     ref={ref}
     className={cn("aspect-square h-full w-full", className)}
     {...props}
-  />
+
+/>
 ))
 AvatarImage.displayName = AvatarPrimitive.Image.displayName
 
 const AvatarFallback = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Fallback>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
->(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Fallback
+React.ElementRef<typeof AvatarPrimitive.Fallback>,
+React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
+
+> (({ className, ...props }, ref) => (
+> <AvatarPrimitive.Fallback
+
     ref={ref}
     className={cn(
       "flex h-full w-full items-center justify-center rounded-full bg-muted",
       className
     )}
     {...props}
-  />
+
+/>
 ))
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName
 
@@ -834,33 +850,33 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-  {
-    variants: {
-      variant: {
-        default:
-          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
-        secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive:
-          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-        outline: "text-foreground",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  }
+"inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+{
+variants: {
+variant: {
+default:
+"border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
+secondary:
+"border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+destructive:
+"border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
+outline: "text-foreground",
+},
+},
+defaultVariants: {
+variant: "default",
+},
+}
 )
 
 export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
+extends React.HTMLAttributes<HTMLDivElement>,
+VariantProps<typeof badgeVariants> {}
 
 function Badge({ className, variant, ...props }: BadgeProps) {
-  return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
-  )
+return (
+<div className={cn(badgeVariants({ variant }), className)} {...props} />
+)
 }
 
 export { Badge, badgeVariants }
@@ -874,51 +890,51 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-  {
-    variants: {
-      variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  }
+"inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+{
+variants: {
+variant: {
+default: "bg-primary text-primary-foreground hover:bg-primary/90",
+destructive:
+"bg-destructive text-destructive-foreground hover:bg-destructive/90",
+outline:
+"border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+secondary:
+"bg-secondary text-secondary-foreground hover:bg-secondary/80",
+ghost: "hover:bg-accent hover:text-accent-foreground",
+link: "text-primary underline-offset-4 hover:underline",
+},
+size: {
+default: "h-10 px-4 py-2",
+sm: "h-9 rounded-md px-3",
+lg: "h-11 rounded-md px-8",
+icon: "h-10 w-10",
+},
+},
+defaultVariants: {
+variant: "default",
+size: "default",
+},
+}
 )
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+VariantProps<typeof buttonVariants> {
+asChild?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
-    return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
-    )
-  }
+({ className, variant, size, asChild = false, ...props }, ref) => {
+const Comp = asChild ? Slot : "button"
+return (
+<Comp
+className={cn(buttonVariants({ variant, size, className }))}
+ref={ref}
+{...props}
+/>
+)
+}
 )
 Button.displayName = "Button"
 
@@ -931,9 +947,11 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 const Card = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+HTMLDivElement,
+React.HTMLAttributes<HTMLDivElement>
+
+> (({ className, ...props }, ref) => (
+
   <div
     ref={ref}
     className={cn(
@@ -946,9 +964,11 @@ const Card = React.forwardRef<
 Card.displayName = "Card"
 
 const CardHeader = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+HTMLDivElement,
+React.HTMLAttributes<HTMLDivElement>
+
+> (({ className, ...props }, ref) => (
+
   <div
     ref={ref}
     className={cn("flex flex-col space-y-1.5 p-6", className)}
@@ -958,9 +978,11 @@ const CardHeader = React.forwardRef<
 CardHeader.displayName = "CardHeader"
 
 const CardTitle = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
+HTMLParagraphElement,
+React.HTMLAttributes<HTMLHeadingElement>
+
+> (({ className, ...props }, ref) => (
+
   <h3
     ref={ref}
     className={cn(
@@ -973,9 +995,11 @@ const CardTitle = React.forwardRef<
 CardTitle.displayName = "CardTitle"
 
 const CardDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
+HTMLParagraphElement,
+React.HTMLAttributes<HTMLParagraphElement>
+
+> (({ className, ...props }, ref) => (
+
   <p
     ref={ref}
     className={cn("text-sm text-muted-foreground", className)}
@@ -985,17 +1009,21 @@ const CardDescription = React.forwardRef<
 CardDescription.displayName = "CardDescription"
 
 const CardContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+HTMLDivElement,
+React.HTMLAttributes<HTMLDivElement>
+
+> (({ className, ...props }, ref) => (
+
   <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
 ))
 CardContent.displayName = "CardContent"
 
 const CardFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+HTMLDivElement,
+React.HTMLAttributes<HTMLDivElement>
+
+> (({ className, ...props }, ref) => (
+
   <div
     ref={ref}
     className={cn("flex items-center p-6 pt-0", className)}
@@ -1010,8 +1038,8 @@ export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
 <file path="components/ui/dropdown-menu.tsx">
 "use client"
 
-import * as React from "react"
-import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
+import _ as React from "react"
+import _ as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
 import { Check, ChevronRight, Circle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -1029,12 +1057,14 @@ const DropdownMenuSub = DropdownMenuPrimitive.Sub
 const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup
 
 const DropdownMenuSubTrigger = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
-    inset?: boolean
-  }
->(({ className, inset, children, ...props }, ref) => (
-  <DropdownMenuPrimitive.SubTrigger
+React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
+React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
+inset?: boolean
+}
+
+> (({ className, inset, children, ...props }, ref) => (
+> <DropdownMenuPrimitive.SubTrigger
+
     ref={ref}
     className={cn(
       "flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent",
@@ -1042,35 +1072,43 @@ const DropdownMenuSubTrigger = React.forwardRef<
       className
     )}
     {...props}
-  >
+
+>
+
     {children}
     <ChevronRight className="ml-auto h-4 w-4" />
-  </DropdownMenuPrimitive.SubTrigger>
+
+</DropdownMenuPrimitive.SubTrigger>
 ))
 DropdownMenuSubTrigger.displayName =
-  DropdownMenuPrimitive.SubTrigger.displayName
+DropdownMenuPrimitive.SubTrigger.displayName
 
 const DropdownMenuSubContent = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>
->(({ className, ...props }, ref) => (
-  <DropdownMenuPrimitive.SubContent
+React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
+React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>
+
+> (({ className, ...props }, ref) => (
+> <DropdownMenuPrimitive.SubContent
+
     ref={ref}
     className={cn(
       "z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
       className
     )}
     {...props}
-  />
+
+/>
 ))
 DropdownMenuSubContent.displayName =
-  DropdownMenuPrimitive.SubContent.displayName
+DropdownMenuPrimitive.SubContent.displayName
 
 const DropdownMenuContent = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
->(({ className, sideOffset = 4, ...props }, ref) => (
-  <DropdownMenuPrimitive.Portal>
+React.ElementRef<typeof DropdownMenuPrimitive.Content>,
+React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
+
+> (({ className, sideOffset = 4, ...props }, ref) => (
+> <DropdownMenuPrimitive.Portal>
+
     <DropdownMenuPrimitive.Content
       ref={ref}
       sideOffset={sideOffset}
@@ -1080,17 +1118,20 @@ const DropdownMenuContent = React.forwardRef<
       )}
       {...props}
     />
-  </DropdownMenuPrimitive.Portal>
+
+</DropdownMenuPrimitive.Portal>
 ))
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName
 
 const DropdownMenuItem = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
-    inset?: boolean
-  }
->(({ className, inset, ...props }, ref) => (
-  <DropdownMenuPrimitive.Item
+React.ElementRef<typeof DropdownMenuPrimitive.Item>,
+React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
+inset?: boolean
+}
+
+> (({ className, inset, ...props }, ref) => (
+> <DropdownMenuPrimitive.Item
+
     ref={ref}
     className={cn(
       "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
@@ -1098,15 +1139,18 @@ const DropdownMenuItem = React.forwardRef<
       className
     )}
     {...props}
-  />
+
+/>
 ))
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName
 
 const DropdownMenuCheckboxItem = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>
->(({ className, children, checked, ...props }, ref) => (
-  <DropdownMenuPrimitive.CheckboxItem
+React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
+React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>
+
+> (({ className, children, checked, ...props }, ref) => (
+> <DropdownMenuPrimitive.CheckboxItem
+
     ref={ref}
     className={cn(
       "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
@@ -1114,47 +1158,57 @@ const DropdownMenuCheckboxItem = React.forwardRef<
     )}
     checked={checked}
     {...props}
-  >
+
+>
+
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
       <DropdownMenuPrimitive.ItemIndicator>
         <Check className="h-4 w-4" />
       </DropdownMenuPrimitive.ItemIndicator>
     </span>
     {children}
-  </DropdownMenuPrimitive.CheckboxItem>
+
+</DropdownMenuPrimitive.CheckboxItem>
 ))
 DropdownMenuCheckboxItem.displayName =
-  DropdownMenuPrimitive.CheckboxItem.displayName
+DropdownMenuPrimitive.CheckboxItem.displayName
 
 const DropdownMenuRadioItem = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>
->(({ className, children, ...props }, ref) => (
-  <DropdownMenuPrimitive.RadioItem
+React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
+React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>
+
+> (({ className, children, ...props }, ref) => (
+> <DropdownMenuPrimitive.RadioItem
+
     ref={ref}
     className={cn(
       "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className
     )}
     {...props}
-  >
+
+>
+
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
       <DropdownMenuPrimitive.ItemIndicator>
         <Circle className="h-2 w-2 fill-current" />
       </DropdownMenuPrimitive.ItemIndicator>
     </span>
     {children}
-  </DropdownMenuPrimitive.RadioItem>
+
+</DropdownMenuPrimitive.RadioItem>
 ))
 DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName
 
 const DropdownMenuLabel = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
-    inset?: boolean
-  }
->(({ className, inset, ...props }, ref) => (
-  <DropdownMenuPrimitive.Label
+React.ElementRef<typeof DropdownMenuPrimitive.Label>,
+React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
+inset?: boolean
+}
+
+> (({ className, inset, ...props }, ref) => (
+> <DropdownMenuPrimitive.Label
+
     ref={ref}
     className={cn(
       "px-2 py-1.5 text-sm font-semibold",
@@ -1162,51 +1216,55 @@ const DropdownMenuLabel = React.forwardRef<
       className
     )}
     {...props}
-  />
+
+/>
 ))
 DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName
 
 const DropdownMenuSeparator = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
->(({ className, ...props }, ref) => (
-  <DropdownMenuPrimitive.Separator
+React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
+React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
+
+> (({ className, ...props }, ref) => (
+> <DropdownMenuPrimitive.Separator
+
     ref={ref}
     className={cn("-mx-1 my-1 h-px bg-muted", className)}
     {...props}
-  />
+
+/>
 ))
 DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName
 
 const DropdownMenuShortcut = ({
-  className,
-  ...props
+className,
+...props
 }: React.HTMLAttributes<HTMLSpanElement>) => {
-  return (
-    <span
-      className={cn("ml-auto text-xs tracking-widest opacity-60", className)}
-      {...props}
-    />
-  )
+return (
+<span
+className={cn("ml-auto text-xs tracking-widest opacity-60", className)}
+{...props}
+/>
+)
 }
 DropdownMenuShortcut.displayName = "DropdownMenuShortcut"
 
 export {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuCheckboxItem,
-  DropdownMenuRadioItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuGroup,
-  DropdownMenuPortal,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuRadioGroup,
+DropdownMenu,
+DropdownMenuTrigger,
+DropdownMenuContent,
+DropdownMenuItem,
+DropdownMenuCheckboxItem,
+DropdownMenuRadioItem,
+DropdownMenuLabel,
+DropdownMenuSeparator,
+DropdownMenuShortcut,
+DropdownMenuGroup,
+DropdownMenuPortal,
+DropdownMenuSub,
+DropdownMenuSubContent,
+DropdownMenuSubTrigger,
+DropdownMenuRadioGroup,
 }
 </file>
 
@@ -1216,22 +1274,22 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
-    return (
-      <input
-        type={type}
-        className={cn(
-          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-          className
-        )}
-        ref={ref}
-        {...props}
-      />
-    )
-  }
+({ className, type, ...props }, ref) => {
+return (
+<input
+type={type}
+className={cn(
+"flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+className
+)}
+ref={ref}
+{...props}
+/>
+)
+}
 )
 Input.displayName = "Input"
 
@@ -1241,34 +1299,41 @@ export { Input }
 <file path="components/ui/scroll-area.tsx">
 "use client"
 
-import * as React from "react"
-import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area"
+import _ as React from "react"
+import _ as ScrollAreaPrimitive from "@radix-ui/react-scroll-area"
 
 import { cn } from "@/lib/utils"
 
 const ScrollArea = React.forwardRef<
-  React.ElementRef<typeof ScrollAreaPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root>
->(({ className, children, ...props }, ref) => (
-  <ScrollAreaPrimitive.Root
+React.ElementRef<typeof ScrollAreaPrimitive.Root>,
+React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root>
+
+> (({ className, children, ...props }, ref) => (
+> <ScrollAreaPrimitive.Root
+
     ref={ref}
     className={cn("relative overflow-hidden", className)}
     {...props}
-  >
+
+>
+
     <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-[inherit]">
       {children}
     </ScrollAreaPrimitive.Viewport>
     <ScrollBar />
     <ScrollAreaPrimitive.Corner />
-  </ScrollAreaPrimitive.Root>
+
+</ScrollAreaPrimitive.Root>
 ))
 ScrollArea.displayName = ScrollAreaPrimitive.Root.displayName
 
 const ScrollBar = React.forwardRef<
-  React.ElementRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>,
-  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>
->(({ className, orientation = "vertical", ...props }, ref) => (
-  <ScrollAreaPrimitive.ScrollAreaScrollbar
+React.ElementRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>,
+React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>
+
+> (({ className, orientation = "vertical", ...props }, ref) => (
+> <ScrollAreaPrimitive.ScrollAreaScrollbar
+
     ref={ref}
     orientation={orientation}
     className={cn(
@@ -1280,9 +1345,12 @@ const ScrollBar = React.forwardRef<
       className
     )}
     {...props}
-  >
+
+>
+
     <ScrollAreaPrimitive.ScrollAreaThumb className="relative flex-1 rounded-full bg-border" />
-  </ScrollAreaPrimitive.ScrollAreaScrollbar>
+
+</ScrollAreaPrimitive.ScrollAreaScrollbar>
 ))
 ScrollBar.displayName = ScrollAreaPrimitive.ScrollAreaScrollbar.displayName
 
@@ -1292,55 +1360,64 @@ export { ScrollArea, ScrollBar }
 <file path="components/ui/tabs.tsx">
 "use client"
 
-import * as React from "react"
-import * as TabsPrimitive from "@radix-ui/react-tabs"
+import _ as React from "react"
+import _ as TabsPrimitive from "@radix-ui/react-tabs"
 
 import { cn } from "@/lib/utils"
 
 const Tabs = TabsPrimitive.Root
 
 const TabsList = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.List>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.List
+React.ElementRef<typeof TabsPrimitive.List>,
+React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
+
+> (({ className, ...props }, ref) => (
+> <TabsPrimitive.List
+
     ref={ref}
     className={cn(
       "inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground",
       className
     )}
     {...props}
-  />
+
+/>
 ))
 TabsList.displayName = TabsPrimitive.List.displayName
 
 const TabsTrigger = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.Trigger
+React.ElementRef<typeof TabsPrimitive.Trigger>,
+React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
+
+> (({ className, ...props }, ref) => (
+> <TabsPrimitive.Trigger
+
     ref={ref}
     className={cn(
       "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm",
       className
     )}
     {...props}
-  />
+
+/>
 ))
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 
 const TabsContent = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.Content
+React.ElementRef<typeof TabsPrimitive.Content>,
+React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
+
+> (({ className, ...props }, ref) => (
+> <TabsPrimitive.Content
+
     ref={ref}
     className={cn(
       "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
       className
     )}
     {...props}
-  />
+
+/>
 ))
 TabsContent.displayName = TabsPrimitive.Content.displayName
 
@@ -1357,70 +1434,70 @@ import { Home, BookOpen, Camera, HelpCircle, Trophy, Users, Leaf, Dna, Droplet, 
 import { Button } from '@/components/ui/button'
 
 const sidebarItems = [
-  { name: "Home", icon: Home },
-  { name: "Diaries", icon: BookOpen },
-  { name: "Shorts", icon: Camera },
-  { name: "Questions", icon: HelpCircle },
-  { name: "Contests", icon: Trophy },
-  { name: "Growers", icon: Users },
-  { name: "Strains", icon: Leaf },
-  { name: "Breeders", icon: Dna },
-  { name: "Nutrients", icon: Droplet },
-  { name: "Lights", icon: Lightbulb },
-  { name: "Tents", icon: Tent },
-  { name: "Blog", icon: BookOpen },
-  { name: "English", icon: Globe },
+{ name: "Home", icon: Home },
+{ name: "Diaries", icon: BookOpen },
+{ name: "Shorts", icon: Camera },
+{ name: "Questions", icon: HelpCircle },
+{ name: "Contests", icon: Trophy },
+{ name: "Growers", icon: Users },
+{ name: "Strains", icon: Leaf },
+{ name: "Breeders", icon: Dna },
+{ name: "Nutrients", icon: Droplet },
+{ name: "Lights", icon: Lightbulb },
+{ name: "Tents", icon: Tent },
+{ name: "Blog", icon: BookOpen },
+{ name: "English", icon: Globe },
 ]
 
 const following = [
-  { name: "Fast Buds", followers: "28K+" },
-  { name: "Liberty H...", followers: "28K+" },
-  { name: "Sweet Se...", followers: "28K+" },
-  { name: "ViperSpec...", followers: "27K+" },
-  { name: "Barney's", followers: "26K+" },
-  { name: "Mimosa E...", followers: "26K+" },
-  { name: "Gorilla Zk...", followers: "26K+" },
-  { name: "Runtz Mu...", followers: "26K+" },
-  { name: "Triple Che...", followers: "22K+" },
-  { name: "Wedding ...", followers: "18K+" },
-  { name: "Sour_D", followers: "54" },
-  { name: "Drgreen13", followers: "23" },
-  { name: "MR_Roof_K93", followers: "22" },
+{ name: "Fast Buds", followers: "28K+" },
+{ name: "Liberty H...", followers: "28K+" },
+{ name: "Sweet Se...", followers: "28K+" },
+{ name: "ViperSpec...", followers: "27K+" },
+{ name: "Barney's", followers: "26K+" },
+{ name: "Mimosa E...", followers: "26K+" },
+{ name: "Gorilla Zk...", followers: "26K+" },
+{ name: "Runtz Mu...", followers: "26K+" },
+{ name: "Triple Che...", followers: "22K+" },
+{ name: "Wedding ...", followers: "18K+" },
+{ name: "Sour_D", followers: "54" },
+{ name: "Drgreen13", followers: "23" },
+{ name: "MR_Roof_K93", followers: "22" },
 ]
 
 export default function CollapsibleSidebar() {
-  const [isExpanded, setIsExpanded] = useState(true)
+const [isExpanded, setIsExpanded] = useState(true)
 
-  return (
-    <div className={`bg-card border-r transition-all duration-300 ${isExpanded ? 'w-64' : 'w-16'}`}>
-      <div className="flex justify-end p-2">
-        <Button variant="ghost" size="icon" onClick={() => setIsExpanded(!isExpanded)}>
-          {isExpanded ? <ChevronLeft className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
-        </Button>
-      </div>
-      <ScrollArea className="h-[calc(100vh-4rem)]"> {/* Adjust height based on your header height */}
-        <div className="p-4 space-y-4">
-          {sidebarItems.map((item) => (
-            <Link key={item.name} href="#" className="flex items-center space-x-2 text-sm hover:bg-accent hover:text-accent-foreground rounded p-2">
-              <item.icon className="h-4 w-4" />
-              {isExpanded && <span>{item.name}</span>}
-            </Link>
-          ))}
-          {isExpanded && (
-            <div className="pt-4 border-t">
-              <h3 className="font-semibold mb-2">Following</h3>
-              {following.map((item) => (
-                <div key={item.name} className="flex items-center justify-between text-sm py-1">
-                  <span>{item.name}</span>
-                  <span className="text-muted-foreground">{item.followers}</span>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </ScrollArea>
-    </div>
-  )
+return (
+<div className={`bg-card border-r transition-all duration-300 ${isExpanded ? 'w-64' : 'w-16'}`}>
+<div className="flex justify-end p-2">
+<Button variant="ghost" size="icon" onClick={() => setIsExpanded(!isExpanded)}>
+{isExpanded ? <ChevronLeft className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+</Button>
+</div>
+<ScrollArea className="h-[calc(100vh-4rem)]"> {/_ Adjust height based on your header height _/}
+<div className="p-4 space-y-4">
+{sidebarItems.map((item) => (
+<Link key={item.name} href="#" className="flex items-center space-x-2 text-sm hover:bg-accent hover:text-accent-foreground rounded p-2">
+<item.icon className="h-4 w-4" />
+{isExpanded && <span>{item.name}</span>}
+</Link>
+))}
+{isExpanded && (
+<div className="pt-4 border-t">
+<h3 className="font-semibold mb-2">Following</h3>
+{following.map((item) => (
+<div key={item.name} className="flex items-center justify-between text-sm py-1">
+<span>{item.name}</span>
+<span className="text-muted-foreground">{item.followers}</span>
+</div>
+))}
+</div>
+)}
+</div>
+</ScrollArea>
+</div>
+)
 }
 </file>
 
@@ -1438,34 +1515,34 @@ import { Bell, Home, BookOpen, HelpCircle, Trophy, Users, Leaf, Dna, Beaker, Lig
 import Image from 'next/image';
 
 export function GrowJournal() {
-  return (
-    <div className="flex h-screen bg-background">
-      {/* Sidebar */}
-      <aside className="w-64 border-r p-4 hidden md:block">
-        <div className="flex items-center mb-6">
-          <Leaf className="h-6 w-6 text-green-600 mr-2" />
-          <span className="text-xl font-bold">GrowJournals</span>
-        </div>
-        <nav className="space-y-2">
-          {[
-            { icon: Home, label: "Home" },
-            { icon: BookOpen, label: "Diaries" },
-            { icon: HelpCircle, label: "Questions" },
-            { icon: Trophy, label: "Contests" },
-            { icon: Users, label: "Growers" },
-            { icon: Leaf, label: "Strains" },
-            { icon: Dna, label: "Breeders" },
-            { icon: Beaker, label: "Nutrients" },
-            { icon: Lightbulb, label: "Lights" },
-            { icon: Tent, label: "Tents" },
-          ].map((item, index) => (
-            <Button key={index} variant="ghost" className="w-full justify-start">
-              <item.icon className="mr-2 h-4 w-4" />
-              {item.label}
-            </Button>
-          ))}
-        </nav>
-      </aside>
+return (
+<div className="flex h-screen bg-background">
+{/_ Sidebar _/}
+<aside className="w-64 border-r p-4 hidden md:block">
+<div className="flex items-center mb-6">
+<Leaf className="h-6 w-6 text-green-600 mr-2" />
+<span className="text-xl font-bold">GrowJournals</span>
+</div>
+<nav className="space-y-2">
+{[
+{ icon: Home, label: "Home" },
+{ icon: BookOpen, label: "Diaries" },
+{ icon: HelpCircle, label: "Questions" },
+{ icon: Trophy, label: "Contests" },
+{ icon: Users, label: "Growers" },
+{ icon: Leaf, label: "Strains" },
+{ icon: Dna, label: "Breeders" },
+{ icon: Beaker, label: "Nutrients" },
+{ icon: Lightbulb, label: "Lights" },
+{ icon: Tent, label: "Tents" },
+].map((item, index) => (
+<Button key={index} variant="ghost" className="w-full justify-start">
+<item.icon className="mr-2 h-4 w-4" />
+{item.label}
+</Button>
+))}
+</nav>
+</aside>
 
       {/* Main content */}
       <main className="flex-1 overflow-y-auto">
@@ -1553,7 +1630,8 @@ export function GrowJournal() {
         </div>
       </main>
     </div>
-  )
+
+)
 }
 </file>
 
@@ -1563,17 +1641,17 @@ export function GrowJournal() {
 import Link from 'next/link'
 
 export default function Header() {
-  return (
-    <header className="border-b">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center">
-          <Link href="/" className="text-2xl font-bold">
-            GrowDiary
-          </Link>
-        </div>
-      </div>
-    </header>
-  )
+return (
+<header className="border-b">
+<div className="container mx-auto px-4 py-4 flex items-center justify-between">
+<div className="flex items-center">
+<Link href="/" className="text-2xl font-bold">
+GrowDiary
+</Link>
+</div>
+</div>
+</header>
+)
 }
 </file>
 
@@ -1585,40 +1663,40 @@ import Link from 'next/link'
 import { Home, Book, Settings, ChevronRight, ChevronLeft } from 'lucide-react'
 
 const Sidebar = () => {
-  const [isExpanded, setIsExpanded] = useState(false)
+const [isExpanded, setIsExpanded] = useState(false)
 
-  const toggleSidebar = () => setIsExpanded(!isExpanded)
+const toggleSidebar = () => setIsExpanded(!isExpanded)
 
-  return (
-    <div className={`fixed left-0 top-0 h-full bg-gray-800 text-white transition-all duration-300 ${isExpanded ? 'w-64' : 'w-16'}`}>
-      <button
+return (
+<div className={`fixed left-0 top-0 h-full bg-gray-800 text-white transition-all duration-300 ${isExpanded ? 'w-64' : 'w-16'}`}>
+<button
         onClick={toggleSidebar}
         className="absolute -right-3 top-9 bg-gray-800 text-white p-1 rounded-full"
       >
-        {isExpanded ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
-      </button>
-      <nav className="flex flex-col items-center pt-20">
-        <Link href="/" className="mb-8">
-          <div className="flex items-center">
-            <Home size={24} />
-            {isExpanded && <span className="ml-4">Home</span>}
-          </div>
-        </Link>
-        <Link href="/journal" className="mb-8">
-          <div className="flex items-center">
-            <Book size={24} />
-            {isExpanded && <span className="ml-4">Journal</span>}
-          </div>
-        </Link>
-        <Link href="/settings" className="mb-8">
-          <div className="flex items-center">
-            <Settings size={24} />
-            {isExpanded && <span className="ml-4">Settings</span>}
-          </div>
-        </Link>
-      </nav>
-    </div>
-  )
+{isExpanded ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+</button>
+<nav className="flex flex-col items-center pt-20">
+<Link href="/" className="mb-8">
+<div className="flex items-center">
+<Home size={24} />
+{isExpanded && <span className="ml-4">Home</span>}
+</div>
+</Link>
+<Link href="/journal" className="mb-8">
+<div className="flex items-center">
+<Book size={24} />
+{isExpanded && <span className="ml-4">Journal</span>}
+</div>
+</Link>
+<Link href="/settings" className="mb-8">
+<div className="flex items-center">
+<Settings size={24} />
+{isExpanded && <span className="ml-4">Settings</span>}
+</div>
+</Link>
+</nav>
+</div>
+)
 }
 
 export default Sidebar
@@ -1629,7 +1707,7 @@ import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+return twMerge(clsx(inputs))
 }
 </file>
 
@@ -1643,38 +1721,47 @@ export function cn(...inputs: ClassValue[]) {
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+
 /node_modules
 /.pnp
 .pnp.js
 .yarn/install-state.gz
 
 # testing
+
 /coverage
 
 # next.js
+
 /.next/
 /out/
 
 # production
+
 /build
 
 # misc
+
 .DS_Store
-*.pem
+\*.pem
 
 # debug
+
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
+yarn-error.log\*
 
 # local env files
-.env*.local
+
+.env\*.local
 
 # vercel
+
 .vercel
 
 # typescript
-*.tsbuildinfo
+
+\*.tsbuildinfo
 next-env.d.ts
 </file>
 
@@ -1707,12 +1794,12 @@ import { clerkMiddleware } from "@clerk/nextjs/server";
 export default clerkMiddleware();
 
 export const config = {
-  matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    // Always run for API routes
-    '/(api|trpc)(.*)',
-  ],
+matcher: [
+// Skip Next.js internals and all static files, unless found in search params
+'/((?!\_next|[^?]_\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest))._)',
+// Always run for API routes
+'/(api|trpc)(.\*)',
+],
 };
 </file>
 
@@ -1822,64 +1909,64 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-    darkMode: ["class"],
-    content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-  	extend: {
-  		colors: {
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
-  			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
-  			},
-  			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
-  			},
-  			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
-  			},
-  			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			}
-  		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		}
-  	}
-  },
-  plugins: [require("tailwindcss-animate")],
+darkMode: ["class"],
+content: [
+"./pages/**/*.{js,ts,jsx,tsx,mdx}",
+"./components/**/*.{js,ts,jsx,tsx,mdx}",
+"./app/**/*.{js,ts,jsx,tsx,mdx}",
+],
+theme: {
+extend: {
+colors: {
+background: 'hsl(var(--background))',
+foreground: 'hsl(var(--foreground))',
+card: {
+DEFAULT: 'hsl(var(--card))',
+foreground: 'hsl(var(--card-foreground))'
+},
+popover: {
+DEFAULT: 'hsl(var(--popover))',
+foreground: 'hsl(var(--popover-foreground))'
+},
+primary: {
+DEFAULT: 'hsl(var(--primary))',
+foreground: 'hsl(var(--primary-foreground))'
+},
+secondary: {
+DEFAULT: 'hsl(var(--secondary))',
+foreground: 'hsl(var(--secondary-foreground))'
+},
+muted: {
+DEFAULT: 'hsl(var(--muted))',
+foreground: 'hsl(var(--muted-foreground))'
+},
+accent: {
+DEFAULT: 'hsl(var(--accent))',
+foreground: 'hsl(var(--accent-foreground))'
+},
+destructive: {
+DEFAULT: 'hsl(var(--destructive))',
+foreground: 'hsl(var(--destructive-foreground))'
+},
+border: 'hsl(var(--border))',
+input: 'hsl(var(--input))',
+ring: 'hsl(var(--ring))',
+chart: {
+'1': 'hsl(var(--chart-1))',
+'2': 'hsl(var(--chart-2))',
+'3': 'hsl(var(--chart-3))',
+'4': 'hsl(var(--chart-4))',
+'5': 'hsl(var(--chart-5))'
+}
+},
+borderRadius: {
+lg: 'var(--radius)',
+md: 'calc(var(--radius) - 2px)',
+sm: 'calc(var(--radius) - 4px)'
+}
+}
+},
+plugins: [require("tailwindcss-animate")],
 };
 export default config;
 </file>
