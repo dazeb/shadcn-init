@@ -18,7 +18,7 @@ import { Separator } from "@/components/ui/separator";
 
 export default function NewDiary() {
   const [roomType, setRoomType] = useState("indoor");
-  const [isWeekOne, setIsWeekOne] = useState(true);
+  const [isWeekOne] = useState(true);
 
   return (
     <div className="container mx-auto p-4 max-w-6xl">
