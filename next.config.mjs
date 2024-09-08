@@ -1,9 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   images: {
-    domains: ['placehold.jp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.jp',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
-  // ... other configurations
-};
+}
 
-export default nextConfig;
+export default nextConfig

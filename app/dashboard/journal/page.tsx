@@ -65,7 +65,7 @@ export default function GrowJournal() {
             </ScrollArea>
           </CardContent>
         </Card>
-
+        
         <Card>
           <CardHeader>
             <CardTitle>Grow Conditions</CardTitle>

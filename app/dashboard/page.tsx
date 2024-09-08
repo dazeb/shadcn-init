@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import RadialChart from "../../components/RadialChart"
 
 import { useUser } from "@clerk/nextjs"
 
@@ -49,6 +50,9 @@ export default function Dashboard() {
             </CardFooter>
           </Card>
         ))}
+      </div>
+      <div>
+        <RadialChart />
       </div>
       <h2 className="text-2xl font-bold mb-4">Shorts</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">

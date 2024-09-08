@@ -42,13 +42,13 @@ export default function CollapsibleSidebar() {
   const [isExpanded, setIsExpanded] = useState(true)
 
   return (
-    <div className={`bg-card border-r transition-all duration-300 ${isExpanded ? 'w-64' : 'w-16'}`}>
+    <div className={`bg-card border-r transition-all duration-300 h-full flex flex-col ${isExpanded ? 'w-64' : 'w-16'}`}>
       <div className="flex justify-end p-2">
         <Button variant="ghost" size="icon" onClick={() => setIsExpanded(!isExpanded)}>
           {isExpanded ? <ChevronLeft className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
         </Button>
       </div>
-      <ScrollArea className="h-[calc(100vh-4rem)]"> {/* Adjust height based on your header height */}
+      <ScrollArea className="flex-grow">
         <div className="p-4 space-y-4">
           {sidebarItems.map((item) => (
             <Link key={item.name} href="#" className="flex items-center space-x-2 text-sm hover:bg-accent hover:text-accent-foreground rounded p-2">
