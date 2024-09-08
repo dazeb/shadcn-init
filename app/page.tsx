@@ -9,18 +9,33 @@ const growthStages = ['All', 'Indoor', 'Outdoor', 'Vegetation', 'Flowering', 'Ha
 const shorts = ["Barney's Blue Sunset Sherbet", "First F1 Pineapple Express", "Sour Puffs", "Megh Sea Of Weed", "FastBuds Gorilla Zkittlez", "Powered by kinmen"]
 
 export default function Home() {
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <main className="container mx-auto px-4 py-8">
-        <Tabs defaultValue="all" className="mb-8">
-          <TabsList>
-            {growthStages.map((stage) => (
-              <TabsTrigger key={stage} value={stage.toLowerCase()}>{stage}</TabsTrigger>
-            ))}
-          </TabsList>
-        </Tabs>
-
+      <Tabs defaultValue="Indoor" className="mb-8">
+        <TabsList>
+          {growthStages.map((stage) => (
+            <TabsTrigger 
+              key={stage} 
+              value={stage.toLowerCase()} 
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            >
+              {stage}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </Tabs>
+           {/* <Tabs defaultValue="week1" className="mb-6">
+        <TabsList className="grid w-full grid-cols-12 gap-2">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((week) => (
+            <TabsTrigger key={week} value={`week${week}`} className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              Week {week}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </Tabs> */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
           {[...Array(8)].map((_, i) => (
             <Card key={i}>

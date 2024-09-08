@@ -23,6 +23,15 @@ export default function Dashboard() {
           ))}
         </TabsList>
       </Tabs>
+           <Tabs defaultValue="week1" className="mb-6">
+        <TabsList className="grid w-full grid-cols-12 gap-2">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((week) => (
+            <TabsTrigger key={week} value={`week${week}`} className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+              Week {week}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </Tabs>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
         {[...Array(8)].map((_, i) => (
           <Card key={i}>
