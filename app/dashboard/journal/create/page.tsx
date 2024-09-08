@@ -68,10 +68,11 @@ export default function NewDiary() {
                   </RadioGroup>
                 </div>
 
-                {roomType === 'indoor' && (
-                <div>
-                  <CardTitle className="flex items-center text-emerald-800"></CardTitle>
-                    <h3 className="text-lg font-semibold mb-2 text-emerald-700">Grow Tent</h3>
+                {roomType === "indoor" && (
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-emerald-700">
+                      Grow Tent
+                    </h3>
                     <Button variant="outline" className="w-full justify-start">
                       <Plus className="mr-2 h-4 w-4" /> Add Tent
                     </Button>
