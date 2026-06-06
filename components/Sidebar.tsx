@@ -1,16 +1,18 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { Home, Book, Settings, ChevronRight, ChevronLeft } from 'lucide-react'
+import { useState } from "react";
+import Link from "next/link";
+import { Home, Book, Settings, ChevronRight, ChevronLeft } from "lucide-react";
 
 const Sidebar = () => {
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const toggleSidebar = () => setIsExpanded(!isExpanded)
+  const toggleSidebar = () => setIsExpanded(!isExpanded);
 
   return (
-    <div className={`fixed left-0 top-0 h-full bg-gray-800 text-white transition-all duration-300 ${isExpanded ? 'w-64' : 'w-16'}`}>
+    <div
+      className={`fixed left-0 top-0 h-full bg-gray-800 text-white transition-all duration-300 ${isExpanded ? "w-64" : "w-16"}`}
+    >
       <button
         onClick={toggleSidebar}
         className="absolute -right-3 top-9 bg-gray-800 text-white p-1 rounded-full"
@@ -38,7 +40,7 @@ const Sidebar = () => {
         </Link>
       </nav>
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
